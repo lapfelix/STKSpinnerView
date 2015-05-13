@@ -133,6 +133,9 @@
     CGRect outer = CGRectInset([self bounds], wt / 2.0, wt / 2.0);
     CGRect inner = CGRectInset([self bounds], wt, wt);
     
+    if(CGRectIsEmpty(inner) || CGRectIsEmpty(outer))
+        return;
+        
     UIBezierPath *innerPath = [UIBezierPath bezierPathWithOvalInRect:inner];
     UIBezierPath *outerPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(CGRectGetMidX(outer), CGRectGetMidY(outer))
                                                              radius:[self radius]
